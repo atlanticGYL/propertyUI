@@ -2,7 +2,18 @@
 <body>
   <div
     class="aui-wrapper"
-    :class="{ 'aui-header--fixed': headerFixed, 'aui-aside--fixed': asideFixed, 'aui-aside--fold': asideFold }"
+    :class="[
+      'aui-header--' + headerSkin,
+      'aui-aside--' + asideSkin,
+      {
+        'aui-header--fixed': headerFixed,
+        'aui-aside--fixed': asideFixed,
+        'aui-aside--fold': asideFold,
+        'aui-aside-control--fixed': asideControlFixed,
+        'aui-aside-control--open': asideControlOpen,
+        'aui-main-tabs__header--fixed': mainTabsHeaderFixed
+      }
+    ]"
     v-loading.fullscreen.lock="loading"
     element-loading-text="拼命加载中">
     <template v-if="!loading">
@@ -10,164 +21,153 @@
       <include src="../templates/layout-header.html"></include>
       <!-- aui-aside -->
       <include src="../templates/layout-aside.html"></include>
+      <!-- aui-aside-control -->
+      <include src="../templates/layout-aside-control.html"></include>
       <!-- aui-main -->
       <main class="aui-main">
-        <el-row>
-          <el-button>默认按钮</el-button>
-          <el-button type="primary">主要按钮</el-button>
-          <el-button type="success">成功按钮</el-button>
-          <el-button type="info">信息按钮</el-button>
-          <el-button type="warning">警告按钮</el-button>
-          <el-button type="danger">危险按钮</el-button>
-        </el-row>
+        <el-dropdown class="aui-main-tabs__tool">
+          <i class="el-icon-arrow-down"></i>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>关闭当前标签页</el-dropdown-item>
+            <el-dropdown-item>关闭其它标签页</el-dropdown-item>
+            <el-dropdown-item>关闭全部标签页</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-tabs class="aui-main-tabs" v-model="mainTabsActive">
+          <el-tab-pane label="home" name="home" :closable="false">
+            <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+            <div style="height: 1000px;">首页</div>
+          </el-tab-pane>
+          <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
+          <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
+          <el-tab-pane label="标签页5" name="5" closable><span slot="label"><i class="el-icon-date"></i> 标签页5</span></el-tab-pane>
+          <el-tab-pane label="标签页6" name="6" closable>标签页6</el-tab-pane>
+          <el-tab-pane label="标签页7" name="7" closable>标签页7</el-tab-pane>
+          <el-tab-pane label="标签页8" name="8" closable>标签页8</el-tab-pane>
+          <el-tab-pane label="标签页9" name="9" closable>标签页9</el-tab-pane>
+          <el-tab-pane label="标签页10" name="10" closable>标签页10</el-tab-pane>
+        </el-tabs>
       </main>
       <!-- aui-footer -->
       <include src="../templates/layout-footer.html"></include>
-      <!-- aui-aside-control -->
-      <include src="../templates/layout-aside-control.html"></include>
     </template>
   </div>
   <include src="../templates/html-scripts.html" path=".."></include>
   <script>
-  (function () {
-    var vm = window.vm = new Vue({
-      el: '.aui-wrapper',
-      data: function () {
-        return {
-          loading: true,
-          // 头部, 皮肤 (white 白色 / colorful 鲜艳)
-          headerSkin: 'white',
-          // 头部, 固定状态
-          headerFixed: false,
-          // 侧边, 皮肤 (white 白色 / dark 黑色)
-          asideSkin: 'white',
-          // 侧边, 固定状态
-          asideFixed: false,
-          // 侧边, 折叠状态
-          asideFold: false,
-          // 侧边, 菜单
-          asideMenuList: [],
-          asideMenuActiveName: '',
-          // 搜索
-          searchVisible: false,
-          searchValue: '',
-          // 侧边控制, 打开状态
-          asideControlOpen: false,
-          // 皮肤
-          skin: 'blue',
-          skinList: []
-        }
-      },
-      beforeCreate () {
-        vm = this;
-      },
-      created () {
-        axios.all([
-          vm.getSkinList(),
-          vm.getMenuList()
-        ]).then(function () {
+    (function () {
+      var vm = window.vm = new Vue({
+        el: '.aui-wrapper',
+        data: function () {
+          return {
+            loading: true,
+            // 头部, 皮肤 (white 白色 / colorful 鲜艳)
+            headerSkin: 'colorful',
+            // 头部, 固定状态
+            headerFixed: false,
+            // 侧边, 皮肤 (white 白色 / dark 黑色)
+            asideSkin: 'dark',
+            // 侧边, 固定状态
+            asideFixed: false,
+            // 侧边, 折叠状态
+            asideFold: false,
+            // 侧边, 菜单选中
+            asideMenuActive: 'home',
+            // 搜索
+            searchVisible: false,
+            search: '',
+            // 侧边管理控制
+            asideControlFixed: false,
+            asideControlOpen: false,
+            asideControlTabsActive: 'layout',
+            // 主标签页
+            mainTabs: [],
+            mainTabsActive: 'home',
+            mainTabsHeaderFixed: false,
+            // 皮肤
+            skin: 'orange',
+            skinList: [
+              { name: 'blue'     , color: '#3E8EF7', remark: '蓝色' },
+              { name: 'brown'    , color: '#997B71', remark: '棕色' },
+              { name: 'cyan'     , color: '#0BB2D4', remark: '青色' },
+              { name: 'gray'     , color: '#757575', remark: '灰色' },
+              { name: 'green'    , color: '#11C26D', remark: '绿色' },
+              { name: 'indigo'   , color: '#667AFA', remark: '靛青色' },
+              { name: 'orange'   , color: '#EB6709', remark: '橙色' },
+              { name: 'pink'     , color: '#F74584', remark: '粉红色' },
+              { name: 'purple'   , color: '#9463F7', remark: '紫色' },
+              { name: 'red'      , color: '#FF4C52', remark: '红色' },
+              { name: 'turquoise', color: '#17B3A3', remark: '蓝绿色' },
+              { name: 'yellow'   , color: '#FCB900', remark: '黄色' }
+            ]
+          }
+        },
+        watch: {
+          headerFixed: function (val) {
+            if (!val) {
+              vm.asideControlFixed = false;
+              vm.mainTabsHeaderFixed = false;
+            }
+          },
+          asideControlFixed: function (val) {
+            if (val) {
+              vm.headerFixed = true;
+            }
+          },
+          mainTabsHeaderFixed: function (val) {
+            if (val) {
+              vm.headerFixed = true;
+            }
+          }
+        },
+        beforeCreate () {
+          vm = this;
+        },
+        created () {
           vm.loading = false;
-          // 注册组件, 侧边栏子菜单
-          fnRegistrationAuiSidebarSubmenu();
-        });
-      },
-      methods: {
-        // 获取皮肤列表
-        getSkinList: function () {
-          return axios.get('../skins.json').then(function (res) {
-            if (res.data && res.data.code === 0) {
-              vm.skinList = res.data;
-            }
-          })
-        },
-        // 获取菜单列表
-        getMenuList: function () {
-          return axios.get('../mock/sys-menu-nav.json').then(function (res) {
-            if (res.data && res.data.code === 0) {
-              vm.asideMenuList = res.data.data;
-            }
-          })
-        },
-        // 搜索提示信息
-        searchSuggestionsHandle (queryString, cb) {
-          cb([
-            { value: '搜索提示一' },
-            { value: '搜索提示二' },
-            { value: '搜索提示三' }
-          ]);
-        },
-        // 皮肤切换
-        skinChangeHandle (val) {
-          var styleList = [
-            {
-              id: 'J_elementTheme',
-              url: '../element-theme/' + val + '/index.css?t=' + new Date().getTime()
-            },
-            {
-              id: 'J_auiSKin',
-              url: '../css/aui-' + val + '.min.css?t=' + new Date().getTime()
-            }
-          ]
-          for (var i = 0; i < styleList.length; i++) {
-            var el = document.querySelector('#' + styleList[i].id)
-            if (el) {
-              el.href = styleList[i].url
-              continue
-            }
-            el = document.createElement('link')
-            el.id = styleList[i].id
-            el.href = styleList[i].url
-            el.rel = 'stylesheet'
-            document.querySelector('head').appendChild(el)
-          }
-        }
-      }
-    });
-
-    /**
-    * 注册组件, 侧边栏子菜单
-    */
-    function fnRegistrationAuiSidebarSubmenu () {
-      Vue.component('aui-aside-submenu', {
-        template: '\
-          <el-submenu\
-            v-if="menu.children && menu.children.length >= 1"\
-            :index="menu.id + \'\'"\
-            :popper-append-to-body=\"false\">\
-            <template slot="title">\
-              <svg class="aui-aside__menu-icon icon-svg" aria-hidden="true"><use :xlink:href="\'#\' + (menu.icon || \'icon-yuanquan\')"></use></svg>\
-              <span>{{ menu.title }}</span>\
-            </template>\
-            <aui-aside-submenu\
-              v-for="item in menu.children"\
-              :key="item.id"\
-              :menu="item"\
-              :aside-skin="asideSkin">\
-            </aui-aside-submenu>\
-          </el-submenu>\
-          <el-menu-item v-else :index="menu.id + \'\'" @click="tabAddHandle(menu)">\
-            <svg class="aui-aside__menu-icon icon-svg" aria-hidden="true"><use :xlink:href="\'#\' + (menu.icon || \'icon-yuanquan\')"></use></svg>\
-            <span>{{ menu.title }}</span>\
-          </el-menu-item>',
-        props: {
-          menu: {
-            type: Object,
-            required: true
-          }
-        },
-        computed: {
-          asideSkin: function () {
-            return vm.asideSkin;
-          }
+          vm.$nextTick(function () {
+            // 搜索, 显示／隐藏
+            vm.$refs.auiSearchMenu.$el.addEventListener('click', function(e) {
+              e.cancelBubble = true;
+            });
+            vm.$refs.auiSearch.addEventListener('click', function(e) {
+              e.cancelBubble = true;
+            });
+            window.addEventListener('click', function (e) {
+              if (vm.searchVisible) {
+                vm.searchVisible = false;
+              }
+            });
+          });
         },
         methods: {
-          tabAddHandle (menu) {
-            vm.$emit('tabAddHandle', menu);
+          // 皮肤切换
+          skinChangeHandle: function (val) {
+            var styleList = [
+              {
+                id: 'J_elementTheme',
+                url: '../element-theme/' + val + '/index.css?t=' + new Date().getTime()
+              },
+              {
+                id: 'J_auiSKin',
+                url: '../css/aui-' + val + '.min.css?t=' + new Date().getTime()
+              }
+            ]
+            for (var i = 0; i < styleList.length; i++) {
+              var el = document.querySelector('#' + styleList[i].id)
+              if (el) {
+                el.href = styleList[i].url
+                continue
+              }
+              el = document.createElement('link')
+              el.id = styleList[i].id
+              el.href = styleList[i].url
+              el.rel = 'stylesheet'
+              document.querySelector('head').appendChild(el)
+            }
           }
         }
-      }); 
-    };
-  })();
-</script>
+      });
+    })();
+  </script>
 </body>
 </html>

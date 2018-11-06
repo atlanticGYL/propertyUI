@@ -46,7 +46,7 @@ gulp.task('styles', () => {
       browsers: require('./package.json')['element-theme'].browsers,
       cascade: false
     }))
-    .pipe($.rename({ suffix: '-blue' }))
+    .pipe($.rename({ suffix: '-orange' }))
     .pipe(gulp.dest('./dist/css'))
     .pipe($.cleanCss())
     .pipe($.rename({ suffix: '.min' }))

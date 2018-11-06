@@ -1,25 +1,29 @@
-<header class="aui-header" :class="'aui-header--' + headerSkin">
+<header class="aui-header">
   <div class="aui-header__hd">
     <a class="aui-brand aui-brand--lg" href="javascript:;">renren-aui</a>
     <a class="aui-brand aui-brand--sm" href="javascript:;">aui</a>
   </div>
   <div class="aui-header__bd">
-    <el-menu class="aui-header__menu mr-auto" mode="horizontal">
+    <!-- aui-header__menu left -->
+    <el-menu class="aui-header__menu aui-header__menu--left" mode="horizontal">
       <el-menu-item index="1" @click="asideFold = !asideFold">
         <svg class="icon-svg aui-header__icon-menu aui-header__icon-menu--rz180" aria-hidden="true"><use xlink:href="#icon-outdent"></use></svg>
       </el-menu-item>
+    </el-menu>
+    <!-- aui-header__menu right -->
+    <el-menu class="aui-header__menu aui-header__menu--right" mode="horizontal">
       <el-menu-item index="2">
-        <a href="//www.renren.io/" target="_blank">
-          <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-earth"></use></svg>
-        </a>
-      </el-menu-item>
+          <a href="//www.renren.io/" target="_blank">
+            <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-earth"></use></svg>
+          </a>
+        </el-menu-item>
       <el-menu-item index="3">
         <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-sync"></use></svg>
       </el-menu-item>
       <el-menu-item index="4">
         <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-fullscreen"></use></svg>
       </el-menu-item>
-      <el-submenu index="5">
+      <el-submenu index="5" :popper-append-to-body="false">
         <template slot="title">我的工作台</template>
         <el-menu-item index="5-1">选项1</el-menu-item>
         <el-menu-item index="5-2">选项2</el-menu-item>
@@ -31,42 +35,33 @@
           <el-menu-item index="5-4-3">选项4-3</el-menu-item>
         </el-submenu>
       </el-submenu>
-    </el-menu>
-    <el-menu class="aui-header__menu" mode="horizontal">
-      <el-menu-item index="1" class="aui-header__search">
-        <a href="javascript:;" @click="searchVisible = !searchVisible">
-          <svg class="aui-header__icon-menu icon-svg" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
-        </a>
-        <el-autocomplete
-          v-model="searchValue"
-          :fetch-suggestions="searchSuggestionsHandle"
-          placeholder="请输入内容"
-          class="aui-header__search-txt" :class="{ 'aui-header__search-txt--show': searchVisible }">
-        </el-autocomplete>
+      <el-menu-item index="1" @click="searchVisible = !searchVisible" ref="auiSearchMenu">
+        <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
       </el-menu-item>
-      <el-menu-item index="2">
-        <el-dropdown placement="bottom">
+      <el-submenu index="2" :popper-append-to-body="false" class="not-arrow t-center">
+        <template slot="title">
           <el-button size="mini">简体中文</el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>简体中文</el-dropdown-item>
-            <el-dropdown-item>繁體中文</el-dropdown-item>
-            <el-dropdown-item>English</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <el-dropdown placement="bottom">
-          <span class="el-dropdown-link">
-            <img class="aui-avatar" src="../img/avatar.png">
-            <span>admin</span>
-            <i class="el-icon-arrow-down"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="updatePasswordHandle()">修改密码</el-dropdown-item>
-            <el-dropdown-item @click.native="logoutHandle()">退出</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </el-menu-item>
+        </template>
+        <el-menu-item index="2-1">简体中文</el-menu-item>
+        <el-menu-item index="2-2">繁體中文</el-menu-item>
+        <el-menu-item index="2-3">English</el-menu-item>
+      </el-submenu>
+      <el-submenu index="3" :popper-append-to-body="false">
+        <template slot="title">
+          <img class="aui-avatar" src="../img/avatar.png">
+          <span>admin</span>
+        </template>
+        <el-menu-item index="3-1">修改密码</el-menu-item>
+        <el-menu-item index="3-2">退出</el-menu-item>
+      </el-submenu>
     </el-menu>
+    <!-- aui-search -->
+    <div class="aui-search" :class="{ 'aui-search--show': searchVisible }" ref="auiSearch">
+      <div class="aui-search__inner">
+        <el-input class="aui-search__input" v-model="search" placeholder="搜索关键字" clearable>
+          <svg slot="prepend" class="icon-svg" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+        </el-input>
+      </div>
+    </div>
   </div>
 </header>
