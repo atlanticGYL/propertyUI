@@ -6,52 +6,108 @@
       :collapse="asideFold"
       :unique-opened="true"
       :collapse-transition="false">
-      <el-menu-item index="home">
-        <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-        <span slot="title">首页</span>
-      </el-menu-item>
-      <el-submenu index="5" :popper-append-to-body="false">
+      <el-submenu index="dashboard" :popper-append-to-body="false">
         <template slot="title">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
-          <span slot="title">我的控制台</span>
+          <span>Dashboard</span>
         </template>
-        <el-menu-item index="5-1"><svg class="aui-aside__menu-icon icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>选项1</el-menu-item>
-        <el-menu-item index="5-2">选项2</el-menu-item>
-        <el-menu-item index="5-3">选项3</el-menu-item>
-        <el-submenu index="5-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="5-4-1">选项4-1</el-menu-item>
-          <el-menu-item index="5-4-2">选项4-2</el-menu-item>
-          <el-menu-item index="5-4-3">选项4-3</el-menu-item>
-        </el-submenu>
-        <el-menu-item-group title="General">
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Pages">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-            <el-menu-item index="3">
-              <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-sync"></use></svg>
-              <span>选项4</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fullscreen"></use></svg>
-              <span>选项5</span>
-            </el-menu-item>
-          </el-menu-item-group>
+        <el-menu-item index="home" @click="gotoPageHandle('./index.html')">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+          <span slot="title">首页</span>
+        </el-menu-item>
+        <el-menu-item index="home-tabs" @click="gotoPageHandle('./index-tabs.html')">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+          <span slot="title">首页 - tabs</span>
+        </el-menu-item>
+        <el-menu-item index="dashboard-workplace">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>工作台</span>
+        </el-menu-item>
+        </el-menu-item>
       </el-submenu>
-      <el-menu-item index="2">
-        <i class="aui-aside__menu-icon el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="aui-aside__menu-icon el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="aui-aside__menu-icon el-icon-setting"></i>
-        <span slot="title">导航四</span>
-      </el-menu-item>
+
+      <el-submenu index="basic" :popper-append-to-body="false">
+        <template slot="title">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>基础页面</span>
+        </template>
+        <el-menu-item index="basic-login">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>登录</span>
+        </el-menu-item>
+        <el-menu-item index="basic-login-v2">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>登录 - v2</span>
+        </el-menu-item>
+        <el-menu-item index="basic-register">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>注册</span>
+        </el-menu-item>
+        <el-menu-item index="basic-register-v2">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>注册 - v2</span>
+        </el-menu-item>
+        <el-menu-item index="basic-forget">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>找回密码</span>
+        </el-menu-item>
+        <el-menu-item index="basic-forget-v2">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>找回密码 - v2</span>
+        </el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="form" :popper-append-to-body="false">
+        <template slot="title">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>表单页面</span>
+        </template>
+        <el-menu-item index="form-basic">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>基础表单</span>
+        </el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="list" :popper-append-to-body="false">
+        <template slot="title">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>列表页面</span>
+        </template>
+        <el-menu-item index="list-basic">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>基础列表</span>
+        </el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="detail" :popper-append-to-body="false">
+        <template slot="title">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>详情页面</span>
+        </template>
+        <el-menu-item index="detail-basic">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>基础详情</span>
+        </el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="error" :popper-append-to-body="false">
+        <template slot="title">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>异常页面</span>
+        </template>
+        <el-menu-item index="error-403">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>403</span>
+        </el-menu-item>
+        <el-menu-item index="error-404">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>404</span>
+        </el-menu-item>
+        <el-menu-item index="error-505">
+          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
+          <span>505</span>
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </div>
 </aside>

@@ -63,6 +63,16 @@
 }
 
 
+/* Font-size
+------------------------------ */
+.fz-xs   { font-size: $font--size-xs !important; }
+.fz-sm   { font-size: $font--size-sm !important; }
+.fz-base { font-size: $font--size-base !important; }
+.fz-lg   { font-size: $font--size-lg !important; }
+.fz-xl   { font-size: $font--size-xl !important; }
+.fz-xxl  { font-size: $font--size-xxl !important; }
+
+
 /* Text
 ------------------------------ */
 .t-truncate {

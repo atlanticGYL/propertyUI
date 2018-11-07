@@ -4,7 +4,7 @@
   </div>
   <div class="aui-aside-control__inner">
     <div class="aui-aside-control__bd">
-      <el-tabs class="aui-aside-control__tabs" v-model="asideControlTabsActive">
+      <el-tabs class="aui-tabs aui-tabs--flex" v-model="asideControlTabsActive">
         <el-tab-pane label="Layout" name="layout">
           <dl class="aui-aside-control__setting">
             <dt>Header</dt>
@@ -20,10 +20,7 @@
             <dt>Aside-control</dt>
             <dd><el-checkbox v-model="asideControlFixed">Fixed 固定</el-checkbox></dd>
           </dl>
-          <dl class="aui-aside-control__setting">
-            <dt>Main-tabs</dt>
-            <dd><el-checkbox v-model="mainTabsHeaderFixed">Header Fixed 固定</el-checkbox></dd>
-          </dl>
+          @@content
         </el-tab-pane>
         <el-tab-pane label="Skins" name="skins">
           <dl class="aui-aside-control__setting">
