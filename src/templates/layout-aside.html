@@ -19,11 +19,6 @@
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
           <span slot="title">首页 - tabs</span>
         </el-menu-item>
-        <el-menu-item index="dashboard-workplace">
-          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
-          <span>工作台</span>
-        </el-menu-item>
-        </el-menu-item>
       </el-submenu>
 
       <el-submenu index="basic" :popper-append-to-body="false">
@@ -31,27 +26,27 @@
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>基础页面</span>
         </template>
-        <el-menu-item index="basic-login">
+        <el-menu-item index="basic-login" @click="gotoPageHandle('./basic-login.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>登录</span>
         </el-menu-item>
-        <el-menu-item index="basic-login-v2">
+        <el-menu-item index="basic-login-v2" @click="gotoPageHandle('./basic-login-v2.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>登录 - v2</span>
         </el-menu-item>
-        <el-menu-item index="basic-register">
+        <el-menu-item index="basic-register" @click="gotoPageHandle('./basic-register.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>注册</span>
         </el-menu-item>
-        <el-menu-item index="basic-register-v2">
+        <el-menu-item index="basic-register-v2" @click="gotoPageHandle('./basic-register-v2.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>注册 - v2</span>
         </el-menu-item>
-        <el-menu-item index="basic-forget">
+        <el-menu-item index="basic-forget" @click="gotoPageHandle('./basic-forget.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>找回密码</span>
         </el-menu-item>
-        <el-menu-item index="basic-forget-v2">
+        <el-menu-item index="basic-forget-v2" @click="gotoPageHandle('./basic-forget-v2.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>找回密码 - v2</span>
         </el-menu-item>

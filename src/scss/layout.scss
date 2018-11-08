@@ -521,6 +521,14 @@ $block: '.aui-main';
     border-radius: $border--radius-base;
     background-color: $color--white;
   }
+  &-tabs.el-tabs > .el-tabs__content > .aui-main-tabs__pane--full.el-tab-pane {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+  
 }
 #{$block}-tabs__header--fixed {
   #{$block}-tabs__tool {
@@ -552,5 +560,6 @@ $block: '.aui-footer';
   margin-left: $aside--width;
   line-height: $footer--height - ($footer--padding-y * 2);
   box-shadow: $footer--shadow;
+  color: $color--text-secondary;
   transition: margin-right .3s, margin-left .3s;
 }

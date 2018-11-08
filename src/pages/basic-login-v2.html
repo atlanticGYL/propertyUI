@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>renren-aui</title>
+  <link rel="stylesheet" href="../element-theme/blue/index.css">
+  <link rel="stylesheet" href="../css/aui-blue.min.css">
+</head>
+<body>
+  <div class="aui-wrapper aui-wrapper--full">
+    <head class="login-header">1</head>
+    <aside class="login-aside">2</aside>
+    <main class="login-main">3</main>
+    <footer class="login-footer">4</footer>
+  </div>
+  <script src="../plugins/vue-2.5.17/vue.js"></script>
+  <script src="../plugins/element-2.4.5/index.js"></script>
+  <script src="../icons/iconfont.js"></script>
+  <script>Vue.prototype.$ELEMENT = { size: 'medium' };</script>
+  <script>
+    (function () {
+      var vm = window.vm = new Vue({
+        el: '.aui-wrapper',
+        data: function () {
+          return {
+          }
+        },
+        beforeCreate () {
+          vm = this;
+        },
+        created () {
+        },
+        methods: {
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

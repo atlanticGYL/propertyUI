@@ -1,7 +1,8 @@
 <include src="../templates/html-header.html" path=".."></include>
 <body>
   <div
-    class="aui-wrapper"
+    v-cloak
+    class="aui-wrapper aui-page--index"
     :class="[
       'aui-header--' + headerSkin,
       'aui-aside--' + asideSkin,
@@ -39,9 +40,9 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-tabs class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
-          <el-tab-pane label="home" name="home" :closable="false">
+          <el-tab-pane class="aui-main-tabs__pane--full" label="home" name="home" :closable="false">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <div style="height: 1000px;">首页</div>
+            <include src="../templates/page-index.html"></include>
           </el-tab-pane>
           <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
           <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
@@ -103,7 +104,9 @@
               { name: 'red'      , color: '#FF4C52', remark: '红色' },
               { name: 'turquoise', color: '#17B3A3', remark: '蓝绿色' },
               { name: 'yellow'   , color: '#FCB900', remark: '黄色' }
-            ]
+            ],
+            indexNoticeTabsActive: '1',
+            indexPersonalTabsActive: '1'
           }
         },
         watch: {
