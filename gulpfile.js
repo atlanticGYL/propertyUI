@@ -14,6 +14,7 @@ var env  = 'dev'  // 环境变量
 gulp.task('copyFiles', () => {
   return gulp.src([
     './src/**/*',
+    '!./src/*.html',
     '!./src/{pages,pages/**}',
     '!./src/{templates,templates/**}',
     '!./src/{scss,scss/**}',
@@ -26,6 +27,15 @@ gulp.task('copyFiles', () => {
 /**
  * 页面
  */
+gulp.task('page-index', () => {
+  return gulp.src(['./src/*.html'])
+    .pipe($.htmlTagInclude())
+    .pipe($.if(env === 'prod', $.replace(/src=\"(.*)\/vue.js\"/g, (match, p1) => {
+      return `src="${p1}/vue.min.js"`
+    })))
+    .pipe(gulp.dest('./dist'))
+    .pipe($.connect.reload())
+})
 gulp.task('pages', () => {
   return gulp.src(['./src/pages/**/*.html'])
     .pipe($.htmlTagInclude())
@@ -109,7 +119,7 @@ gulp.task('scripts', () => {
  * 监听
  */
 gulp.task('watch', () => {
-  gulp.watch(['./src/pages/**/*.html', './src/templates/**/*.html'], ['pages'])
+  gulp.watch(['./src/*.html', './src/pages/**/*.html', './src/templates/**/*.html'], ['page-index', 'pages'])
   gulp.watch(['./src/scss/**/*.{scss,css}'], ['styles', 'skins'])
   gulp.watch(['./src/img/**/*.{gif,jpeg,jpg,png}'], ['images'])
   gulp.watch(['./src/js/**/*.js'], ['scripts'])
@@ -129,13 +139,13 @@ gulp.task('webserver', () => {
 gulp.task('serve', () => {
   del.sync(['./dist/**'])
   env = 'dev'
-  gulp.start(['copyFiles', 'pages', 'styles', 'skins', 'images', 'scripts', 'watch', 'webserver'])
+  gulp.start(['copyFiles', 'page-index', 'pages', 'styles', 'skins', 'images', 'scripts', 'watch', 'webserver'])
 })
 
 gulp.task('build', () => {
   del.sync(['./dist/**'])
   env = 'prod'
-  gulp.start(['copyFiles', 'pages', 'styles', 'skins', 'images', 'scripts'])
+  gulp.start(['copyFiles', 'page-index', 'pages', 'styles', 'skins', 'images', 'scripts'])
 })
 
 /**

@@ -1,4 +1,4 @@
-<include src="../templates/html-header.html" path=".."></include>
+<include src="./templates/html-header.html" path="."></include>
 <body>
   <div
     v-cloak
@@ -19,48 +19,28 @@
     element-loading-text="拼命加载中">
     <template v-if="!loading">
       <!-- aui-header -->
-      <include src="../templates/layout-header.html"></include>
+      <include src="./templates/layout-header.html"></include>
       <!-- aui-aside -->
-      <include src="../templates/layout-aside.html"></include>
+      <include src="./templates/layout-aside.html"></include>
       <!-- aui-aside-control -->
-      <include src="../templates/layout-aside-control.html">
-        <dl class="aui-aside-control__setting">
-          <dt>Main-tabs</dt>
-          <dd><el-checkbox v-model="mainTabsHeaderFixed">Header Fixed 固定</el-checkbox></dd>
-        </dl>
-      </include>
+      <include src="./templates/layout-aside-control.html"></include>
       <!-- aui-main -->
       <main class="aui-main">
-        <el-dropdown class="aui-main-tabs__tool">
-          <i class="el-icon-arrow-down"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>关闭当前标签页</el-dropdown-item>
-            <el-dropdown-item>关闭其它标签页</el-dropdown-item>
-            <el-dropdown-item>关闭全部标签页</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <el-tabs class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
-          <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
-            <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <include src="../templates/pages/index.html"></include>
-          </el-tab-pane>
-          <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
-          <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
-          <el-tab-pane label="标签页5" name="5" closable>
-            <span slot="label"><i class="el-icon-date"></i> 标签页5</span>
-          </el-tab-pane>
-          <el-tab-pane label="标签页6" name="6" closable>标签页6</el-tab-pane>
-          <el-tab-pane label="标签页7" name="7" closable>标签页7</el-tab-pane>
-          <el-tab-pane label="标签页8" name="8" closable>标签页8</el-tab-pane>
-          <el-tab-pane label="标签页9" name="9" closable>标签页9</el-tab-pane>
-          <el-tab-pane label="标签页10" name="10" closable>标签页10</el-tab-pane>
-        </el-tabs>
+        <div class="aui-main__hd">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item>Dashboard</el-breadcrumb-item>
+            <el-breadcrumb-item>首页</el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
+        <div class="aui-main__bd">
+          <include src="./templates/pages/index.html"></include>
+        </div>
       </main>
       <!-- aui-footer -->
-      <include src="../templates/layout-footer.html"></include>
+      <include src="./templates/layout-footer.html"></include>
     </template>
   </div>
-  <include src="../templates/html-scripts.html" path=".."></include>
+  <include src="./templates/html-scripts.html" path="."></include>
   <script>
     (function () {
       var vm = window.vm = new Vue({
@@ -79,7 +59,7 @@
             // 侧边, 折叠状态
             asideFold: false,
             // 侧边, 菜单选中
-            asideMenuActive: 'home-tabs',
+            asideMenuActive: 'home',
             // 搜索
             searchVisible: false,
             search: '',
@@ -159,11 +139,11 @@
             var styleList = [
               {
                 id: 'J_elementTheme',
-                url: '../element-theme/' + val + '/index.css?t=' + new Date().getTime()
+                url: './element-theme/' + val + '/index.css?t=' + new Date().getTime()
               },
               {
                 id: 'J_auiSKin',
-                url: '../css/aui-' + val + '.min.css?t=' + new Date().getTime()
+                url: './css/aui-' + val + '.min.css?t=' + new Date().getTime()
               }
             ]
             for (var i = 0; i < styleList.length; i++) {
