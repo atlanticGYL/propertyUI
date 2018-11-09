@@ -8,6 +8,6 @@
 
 ![demo-screenshot_02](https://github.com/renrenio/renren-aui/blob/master/demo-screenshot/02.png)
 
-![demo-screenshot_01](https://github.com/renrenio/renren-aui/blob/master/demo-screenshot/03.png)
+![demo-screenshot_03](https://github.com/renrenio/renren-aui/blob/master/demo-screenshot/03.png)
 
-![demo-screenshot_02](https://github.com/renrenio/renren-aui/blob/master/demo-screenshot/04.png)
+![demo-screenshot_04](https://github.com/renrenio/renren-aui/blob/master/demo-screenshot/04.png)
