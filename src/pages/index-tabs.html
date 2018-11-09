@@ -2,7 +2,7 @@
 <body>
   <div
     v-cloak
-    class="aui-wrapper aui-page--index"
+    class="aui-wrapper"
     :class="[
       'aui-header--' + headerSkin,
       'aui-aside--' + asideSkin,
@@ -40,13 +40,15 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-tabs class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
-          <el-tab-pane class="aui-main-tabs__pane--full" label="home" name="home" :closable="false">
+          <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <include src="../templates/page-index.html"></include>
+            <include src="../templates/pages/index.html"></include>
           </el-tab-pane>
           <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
           <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
-          <el-tab-pane label="标签页5" name="5" closable><span slot="label"><i class="el-icon-date"></i> 标签页5</span></el-tab-pane>
+          <el-tab-pane label="标签页5" name="5" closable>
+            <span slot="label"><i class="el-icon-date"></i> 标签页5</span>
+          </el-tab-pane>
           <el-tab-pane label="标签页6" name="6" closable>标签页6</el-tab-pane>
           <el-tab-pane label="标签页7" name="7" closable>标签页7</el-tab-pane>
           <el-tab-pane label="标签页8" name="8" closable>标签页8</el-tab-pane>

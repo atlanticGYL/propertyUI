@@ -1,0 +1,48 @@
+/* Page
+------------------------------ */
+$block: '.aui-page';
+#{$block} {
+  position: relative;
+  min-height: 100vh;
+  background-color: $main--background-color;
+  overflow: hidden;
+}
+#{$block}--full {
+  min-height: auto;
+  background-color: transparent;
+  overflow: initial;
+  .aui-page-main {
+    padding: 0;
+  }
+}
+
+
+/* Page Header
+------------------------------ */
+$block: '.aui-page-header';
+#{$block} {
+  position: relative;
+}
+
+
+/* Page Main
+------------------------------ */
+$block: '.aui-page-main';
+#{$block} {
+  position: relative;
+  padding: 15px;
+}
+
+
+/* Page Footer
+------------------------------ */
+$block: '.aui-page-footer';
+#{$block} {
+  position: relative;
+  p {
+    margin: 10px 0;
+  }
+  a {
+    padding: 0 5px;
+  }
+}

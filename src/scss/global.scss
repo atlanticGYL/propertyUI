@@ -44,6 +44,68 @@ a {
   }
 }
 
+// Brand
+.aui-brand {
+  font-size: $font--size-xxl;
+  font-weight: $font--weight-base;
+}
+
+// Intro
+.aui-intro {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  > li {
+    font-size: $font--size-lg;
+    line-height: 1.5;
+    color: $color--text-secondary;
+  }
+  > li + li {
+    margin-top: 5px;
+  }
+}
+
+// Shortcut
+.aui-shortcut {
+  margin-bottom: 15px;
+  &__title {
+    position: relative;
+    margin: 0 0 15px;
+    font-weight: 400;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+      height: 1px;
+      margin-top: -.5px;
+      background-color: $border--color-base;
+      overflow: hidden;
+    }
+  }
+  &__title > span {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    color: $color--text-placeholder;
+    background-color: $color--white;
+  }
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+  }
+  &__list > li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+    font-size: 28px;
+  }
+}
+
 // Panel
 .aui-panel {
   padding: 15px;
@@ -128,13 +190,8 @@ $block: '.aui-tabs';
 }
 
 
-
 /* Reset element-ui
 ------------------------------ */
-.el-input__prefix .el-input__icon {
-  display: inline-block;
-  vertical-align: middle;
-}
 .el-date-editor .el-range-separator {
   width: 8%;
 }
