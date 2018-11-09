@@ -153,17 +153,17 @@ $block: '.aui-page.page-index';
     line-height: 40px;
     text-align: center;
   }
-  .index-block {
+  .index-consume .index-block {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .index-block__hd {
+  .index-consume .index-block__hd {
     min-width: auto;
   }
-  .index-block__bd {
+  .index-consume .index-block__bd {
     text-align: left;
   }
-  .index-block__value {
+  .index-consume .index-block__value {
     padding: 0 5px;
     font-size: $font--size-xs;
   }

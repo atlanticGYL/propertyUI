@@ -1469,17 +1469,17 @@ a {
   line-height: 40px;
   text-align: center; }
 
-.aui-page.page-index .index-block {
+.aui-page.page-index .index-consume .index-block {
   padding-top: 10px;
   padding-bottom: 10px; }
 
-.aui-page.page-index .index-block__hd {
+.aui-page.page-index .index-consume .index-block__hd {
   min-width: auto; }
 
-.aui-page.page-index .index-block__bd {
+.aui-page.page-index .index-consume .index-block__bd {
   text-align: left; }
 
-.aui-page.page-index .index-block__value {
+.aui-page.page-index .index-consume .index-block__value {
   padding: 0 5px;
   font-size: 12px; }
 
