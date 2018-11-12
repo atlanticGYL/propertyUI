@@ -1,8 +1,6 @@
 # renren-aui
 
-- 在线演示 - [http://aui.demo.renren.io/](http://aui.demo.renren.io/)
-- 无须编译、开箱即用。
-- 基于Vue、Element-ui实现的一套后台管理系统HTML模版。
+基于Vue、Element-ui实现的一套后台管理系统HTML模版，无须编译、开箱即用。[http://aui.demo.renren.io/](http://aui.demo.renren.io/)
 
 ![demo-screenshot_01](https://images.gitee.com/uploads/images/2018/1109/170751_b64149a1_1334758.png)
 
