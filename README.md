@@ -1,6 +1,10 @@
 # renren-aui
 
-基于Vue、Element-ui实现的一套后台管理系统HTML模版，无须编译、开箱即用。[http://aui.demo.renren.io/](http://aui.demo.renren.io/)
+- 默认提供12套皮肤。
+- 首页，支持头部（流线／固定）布局、（白色／鲜艳）皮肤。
+- 首页，支持左侧边菜单（流线／固定／折叠）布局、（白色／黑色）皮肤。
+- 首页，支持右侧边管理控制（流线／固定／显示隐藏）布局。
+- 登录页、注册页、找回密码页，支持（居中／右侧固定）布局。
 
 ![demo-screenshot_01](https://images.gitee.com/uploads/images/2018/1109/170751_b64149a1_1334758.png)
 
