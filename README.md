@@ -1,10 +1,29 @@
-# renren-aui
+<h1 align="center">renren-aui</h1>
 
-- 默认提供12套皮肤。
-- 首页，支持头部（流线／固定）布局、（白色／鲜艳）皮肤。
-- 首页，支持左侧边菜单（流线／固定／折叠）布局、（白色／黑色）皮肤。
-- 首页，支持右侧边管理控制（流线／固定／显示隐藏）布局。
-- 登录页、注册页、找回密码页，支持（居中／右侧固定）布局。
+<div align="center">
+
+基于Vue、Element-ui实现的一套后台管理系统HTML模版，无须编译、开箱即用。
+
+[![vue](https://img.shields.io/badge/vue-%5E2.5.17-red.svg)](https://github.com/vuejs/vue)
+[![element](https://img.shields.io/badge/element-%5E2.4.5-orange.svg)](https://github.com/ElemeFE/element)
+[![GitHub issues](https://img.shields.io/github/issues/renrenio/renren-aui.svg)](https://github.com/renrenio/renren-aui/issues)
+[![MIT](https://img.shields.io/github/license/renrenio/renren-aui.svg)](http://opensource.org/licenses/MIT)
+
+</div>
+
+- 在线演示 - [http://aui.demo.renren.io](http://aui.demo.renren.io)
+- 使用文档 - 努力中...
+- 常见问题 - 努力中...
+- 更新日志 - [https://github.com/renrenio/renren-aui/releases](https://github.com/renrenio/renren-aui/releases)
+
+## 兼容性
+
+兼容IE11 / Edge、Chrome、Firefox、Safari、Opera主流浏览器。
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE11 / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE11 / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------- | --------- | --------- | --------- | --------- | 
+
+## 效果展示
 
 ![demo-screenshot_01](https://images.gitee.com/uploads/images/2018/1109/170751_b64149a1_1334758.png)
 
