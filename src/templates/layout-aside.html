@@ -5,7 +5,8 @@
       :default-active="asideMenuActive"
       :collapse="asideFold"
       :unique-opened="true"
-      :collapse-transition="false">
+      :collapse-transition="false"
+      mode="@@mode">
       <el-submenu index="dashboard" :popper-append-to-body="false">
         <template slot="title">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>

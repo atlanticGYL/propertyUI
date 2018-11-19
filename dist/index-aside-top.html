@@ -19,6 +19,7 @@
         'aui-header--fixed': headerFixed,
         'aui-aside--fixed': asideFixed,
         'aui-aside--fold': asideFold,
+        'aui-aside--top': asideTop,
         'aui-aside-control--fixed': asideControlFixed,
         'aui-aside-control--open': asideControlOpen,
         'aui-main-tabs__header--fixed': mainTabsHeaderFixed
@@ -92,7 +93,7 @@
             :collapse="asideFold"
             :unique-opened="true"
             :collapse-transition="false"
-            mode="vertical">
+            mode="horizontal">
             <el-submenu index="dashboard" :popper-append-to-body="false">
               <template slot="title">
                 <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
@@ -641,6 +642,8 @@
             asideFixed: false,
             // 侧边, 折叠状态
             asideFold: false,
+            // 侧边, 折叠状态
+            asideTop: true,
             // 侧边, 菜单选中
             asideMenuActive: 'home',
             // 搜索

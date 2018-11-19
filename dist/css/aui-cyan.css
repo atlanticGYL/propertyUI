@@ -669,8 +669,8 @@ a {
 
 .aui-panel {
   padding: 15px;
-  border-radius: 4px;
   border: 1px solid #ebeef5;
+  border-radius: 4px;
   background-color: #fff; }
   .aui-panel__hd {
     margin-bottom: 15px; }
@@ -817,6 +817,8 @@ a {
     -webkit-transition: margin-left .3s;
     transition: margin-left .3s; }
   .aui-header__menu.el-menu {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
     background-color: transparent;
     border-bottom: 0 !important; }
   .aui-header__menu.el-menu .el-submenu {
@@ -994,11 +996,11 @@ a {
   .aui-aside__menu.el-menu .el-submenu .el-submenu__title {
     height: 40px;
     line-height: 40px;
-    color: #606266; }
+    color: #606266;
+    background-color: transparent; }
     .aui-aside__menu.el-menu .el-menu-item:hover,
     .aui-aside__menu.el-menu .el-submenu .el-submenu__title:hover {
-      color: #0BB2D4;
-      background-color: transparent; }
+      color: #0BB2D4; }
   .aui-aside__menu.el-menu .el-menu-item.is-active,
   .aui-aside__menu.el-menu .el-submenu.is-active,
   .aui-aside__menu.el-menu .el-submenu.is-active .el-menu,
@@ -1101,6 +1103,63 @@ a {
 
 .aui-aside--fold .aui-footer {
   margin-left: 60px; }
+
+.aui-aside--top.aui-wrapper {
+  padding-top: 92px;
+  background-color: #f1f4f5; }
+
+.aui-aside--top .aui-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0BB2D4; }
+
+.aui-aside--top .aui-header__hd {
+  position: relative;
+  width: auto;
+  padding: 0 15px; }
+
+.aui-aside--top .aui-brand {
+  width: auto; }
+
+.aui-aside--top .aui-header__bd {
+  margin-left: auto; }
+
+.aui-aside--top .aui-aside {
+  right: 0;
+  bottom: auto;
+  width: auto;
+  height: 42px;
+  padding: 0 15px;
+  overflow: initial;
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05); }
+
+.aui-aside--top .aui-aside__inner {
+  width: auto;
+  padding-bottom: 0;
+  overflow: initial; }
+
+.aui-aside--top .aui-aside__menu.el-menu {
+  width: auto;
+  border-bottom: 0 !important; }
+
+.aui-aside--top .aui-aside__menu.el-menu .el-menu-item,
+.aui-aside--top .aui-aside__menu.el-menu .el-submenu .el-submenu__title {
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 0 !important; }
+
+.aui-aside--top .aui-main {
+  margin-left: 0; }
+
+.aui-aside--top .aui-main__hd {
+  padding: 20px 15px 5px;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
 
 /* Aside-control
 ------------------------------ */

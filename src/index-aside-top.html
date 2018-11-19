@@ -10,6 +10,7 @@
         'aui-header--fixed': headerFixed,
         'aui-aside--fixed': asideFixed,
         'aui-aside--fold': asideFold,
+        'aui-aside--top': asideTop,
         'aui-aside-control--fixed': asideControlFixed,
         'aui-aside-control--open': asideControlOpen,
         'aui-main-tabs__header--fixed': mainTabsHeaderFixed
@@ -21,7 +22,7 @@
       <!-- aui-header -->
       <include src="./templates/layout-header.html"></include>
       <!-- aui-aside -->
-      <include src="./templates/layout-aside.html" mode="vertical"></include>
+      <include src="./templates/layout-aside.html" mode="horizontal"></include>
       <!-- aui-aside-control -->
       <include src="./templates/layout-aside-control.html"></include>
       <!-- aui-main -->
@@ -58,6 +59,8 @@
             asideFixed: false,
             // 侧边, 折叠状态
             asideFold: false,
+            // 侧边, 折叠状态
+            asideTop: true,
             // 侧边, 菜单选中
             asideMenuActive: 'home',
             // 搜索
