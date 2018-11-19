@@ -1,31 +1,4 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-body {
-  font-family: $font--family-base;
-  font-size: $font--size-base;
-  line-height: $font--line-height-base;
-  text-align: left;
-  color: $color--text-primary;
-  background-color: $color--white;
-}
-a {
-  color: $link--color;
-  text-decoration: none;
-  &:hover {
-    color: $link--hover-color;
-    text-decoration: none;
-  }
-}
-[v-cloak] {
-  display: none;
-}
-
-
-/* Common
------------------------------- */
+// Icon
 .icon-svg {
   width: 1em;
   height: 1em;
@@ -127,8 +100,7 @@ a {
 }
 
 // Tabs
-$block: '.aui-tabs';
-#{$block} {
+.aui-tabs {
   &.el-tabs {
     position: relative;
   }
@@ -178,7 +150,7 @@ $block: '.aui-tabs';
     padding: 15px;
   }
 }
-#{$block}--flex {
+.aui-tabs--flex {
   &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav {
     display: flex;
     width: 100%;
@@ -187,19 +159,4 @@ $block: '.aui-tabs';
   &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
     flex: 1;
   }
-}
-
-
-/* Reset element-ui
------------------------------- */
-.el-date-editor .el-range-separator {
-  width: 8%;
-}
-.el-table th {
-  color: $color--text-primary;
-  background-color: $color--white;
-}
-.el-pagination {
-  margin-top: 15px;
-  text-align: right;
 }

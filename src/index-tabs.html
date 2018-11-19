@@ -10,8 +10,8 @@
         'aui-header--fixed': headerFixed,
         'aui-aside--fixed': asideFixed,
         'aui-aside--fold': asideFold,
-        'aui-aside-control--fixed': asideControlFixed,
-        'aui-aside-control--open': asideControlOpen,
+        'aui-control--fixed': controlFixed,
+        'aui-control--open': controlOpen,
         'aui-main-tabs__header--fixed': mainTabsHeaderFixed
       }
     ]"
@@ -22,9 +22,9 @@
       <include src="./templates/layout-header.html"></include>
       <!-- aui-aside -->
       <include src="./templates/layout-aside.html"></include>
-      <!-- aui-aside-control -->
-      <include src="./templates/layout-aside-control.html">
-        <dl class="aui-aside-control__setting">
+      <!-- aui-control -->
+      <include src="./templates/layout-control.html">
+        <dl class="aui-control__setting">
           <dt>Main-tabs</dt>
           <dd><el-checkbox v-model="mainTabsHeaderFixed">Header Fixed 固定</el-checkbox></dd>
         </dl>
@@ -83,10 +83,10 @@
             // 搜索
             searchVisible: false,
             search: '',
-            // 侧边管理控制
-            asideControlFixed: false,
-            asideControlOpen: false,
-            asideControlTabsActive: 'layout',
+            // 控制台
+            controlFixed: false,
+            controlOpen: false,
+            controlTabsActive: 'layout',
             // 主标签页
             mainTabs: [],
             mainTabsActive: 'home',
@@ -114,11 +114,11 @@
         watch: {
           headerFixed: function (val) {
             if (!val) {
-              vm.asideControlFixed = false;
+              vm.controlFixed = false;
               vm.mainTabsHeaderFixed = false;
             }
           },
-          asideControlFixed: function (val) {
+          controlFixed: function (val) {
             if (val) {
               vm.headerFixed = true;
             }

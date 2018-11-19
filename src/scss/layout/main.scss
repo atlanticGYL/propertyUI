@@ -1,0 +1,87 @@
+.aui-main {
+  position: relative;
+  min-height: calc(100vh - #{$header--height} - #{$footer--height});
+  margin-left: $aside--width;
+  background-color: $main--background-color;
+  transition: margin-right .3s, margin-left .3s;
+  &__hd {
+    padding: 15px;
+    background-color: $color--white;
+    box-shadow: $main--tabs-header-shadow;
+  }
+  &__bd {
+    padding: 15px;
+  }
+  &-tabs__tool {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: $main--tabs-tool-width;
+    height: $main--tabs-header-height;
+    text-align: center;
+    line-height: $main--tabs-header-height;
+    background-color: $bg--color-base;
+    cursor: pointer;
+    transition: right .3s;
+  }
+  &-tabs.el-tabs {
+    padding-top: $main--tabs-header-height;
+  }
+  &-tabs.el-tabs > .el-tabs__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0 ($main--tabs-tool-width + 15px) 0 15px;
+    box-shadow: $main--tabs-header-shadow;
+    background-color: $color--white;
+    transition: right .3s, left .3s;
+  }
+  &-tabs.el-tabs > .el-tabs__header > .el-tabs__nav-wrap  {
+    &::after {
+      display: none;
+    }
+  }
+  &-tabs.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
+    height: $main--tabs-header-height;
+    line-height: $main--tabs-header-height;
+    color: $color--text-regular;
+  }
+  &-tabs.el-tabs > .el-tabs__content {
+    padding: $main--tabs-content-padding-y $main--tabs-content-padding-x;
+  }
+  &-tabs.el-tabs > .el-tabs__content > .el-tab-pane {
+    min-height: calc(100vh - #{$header--height} - #{$main--tabs-header-height} - (#{$main--tabs-content-padding-y} * 2) - #{$footer--height}); 
+    padding: $main--tabs-panel-padding-y $main--tabs-panel-padding-x;
+    border: 1px solid $border--color-lighter;
+    border-radius: $border--radius-base;
+    background-color: $color--white;
+  }
+  &-tabs.el-tabs > .el-tabs__content > .aui-main-tabs__pane--full.el-tab-pane {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+.aui-main-tabs__header--fixed {
+  .aui-main-tabs__tool {
+    position: fixed;
+    top: $header--height;
+  }
+  .aui-main-tabs.el-tabs > .el-tabs__header {
+    position: fixed;
+    top: $header--height;
+    left: $aside--width;
+  }
+  &.aui-aside--fold .aui-main-tabs.el-tabs > .el-tabs__header {
+    left: $aside--width-fold;
+  }
+  &.aui-control--open .aui-main-tabs__tool,
+  &.aui-control--open .aui-main-tabs.el-tabs > .el-tabs__header  {
+    right: $control--width;
+  }
+}

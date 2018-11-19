@@ -1,5 +1,4 @@
-$block: '.aui-page.page-login';
-#{$block} {
+.aui-page.page-login {
   height: 100vh;
   background-color: transparent;
   overflow-x: hidden;
@@ -80,7 +79,7 @@ $block: '.aui-page.page-login';
     padding: 0 5px;
   }
 }
-#{$block}--right-vertical {
+.aui-page.page-login--right-vertical {
   .login-wrapper {
     flex-flow: row nowrap;
     justify-content: flex-start;

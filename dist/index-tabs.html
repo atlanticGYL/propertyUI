@@ -19,8 +19,8 @@
         'aui-header--fixed': headerFixed,
         'aui-aside--fixed': asideFixed,
         'aui-aside--fold': asideFold,
-        'aui-aside-control--fixed': asideControlFixed,
-        'aui-aside-control--open': asideControlOpen,
+        'aui-control--fixed': controlFixed,
+        'aui-control--open': controlOpen,
         'aui-main-tabs__header--fixed': mainTabsHeaderFixed
       }
     ]"
@@ -193,38 +193,38 @@
           </el-menu>
         </div>
       </aside>
-      <!-- aui-aside-control -->
-      <aside class="aui-aside-control">
-        <div class="aui-aside-control__toggle" @click="asideControlOpen = !asideControlOpen">
+      <!-- aui-control -->
+      <aside class="aui-control">
+        <div class="aui-control__toggle" @click="controlOpen = !controlOpen">
           <svg class="icon-svg" aria-hidden="true"><use xlink:href="#icon-setting"></use></svg>
         </div>
-        <div class="aui-aside-control__inner">
-          <div class="aui-aside-control__bd">
-            <el-tabs class="aui-tabs aui-tabs--flex" v-model="asideControlTabsActive">
+        <div class="aui-control__inner">
+          <div class="aui-control__bd">
+            <el-tabs class="aui-tabs aui-tabs--flex" v-model="controlTabsActive">
               <el-tab-pane label="Layout" name="layout">
-                <dl class="aui-aside-control__setting">
+                <dl class="aui-control__setting">
                   <dt>Header</dt>
                   <dd><el-checkbox v-model="headerFixed">Fixed 固定</el-checkbox></dd>
                   <dd><el-checkbox v-model="headerSkin" true-label="colorful" false-label="white">Colorful 鲜艳</el-checkbox></dd>
                 </dl>
-                <dl class="aui-aside-control__setting">
+                <dl class="aui-control__setting">
                   <dt>Aside</dt>
                   <dd><el-checkbox v-model="asideFixed">Fixed 固定</el-checkbox></dd>
                   <dd><el-checkbox v-model="asideSkin" true-label="dark" false-label="white">Dark 鲜艳</el-checkbox></dd>
                 </dl>
-                <dl class="aui-aside-control__setting">
-                  <dt>Aside-control</dt>
-                  <dd><el-checkbox v-model="asideControlFixed">Fixed 固定</el-checkbox></dd>
+                <dl class="aui-control__setting">
+                  <dt>Control</dt>
+                  <dd><el-checkbox v-model="controlFixed">Fixed 固定</el-checkbox></dd>
                 </dl>
                 
-        <dl class="aui-aside-control__setting">
+        <dl class="aui-control__setting">
           <dt>Main-tabs</dt>
           <dd><el-checkbox v-model="mainTabsHeaderFixed">Header Fixed 固定</el-checkbox></dd>
         </dl>
       
               </el-tab-pane>
               <el-tab-pane label="Skins" name="skins">
-                <dl class="aui-aside-control__setting">
+                <dl class="aui-control__setting">
                   <dt>Skins</dt>
                   <dd v-for="item in skinList" :key="item.name">
                     <el-radio v-model="skin" :label="item.name" @change="skinChangeHandle">
@@ -250,7 +250,7 @@
         <el-tabs class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
           <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <div class="aui-page aui-page--full page-index">
+            <div class="aui-page page-index">
               <main class="aui-page-main">
                 <el-row :gutter="15">
                   <el-col :span="16">
@@ -666,10 +666,10 @@
             // 搜索
             searchVisible: false,
             search: '',
-            // 侧边管理控制
-            asideControlFixed: false,
-            asideControlOpen: false,
-            asideControlTabsActive: 'layout',
+            // 控制台
+            controlFixed: false,
+            controlOpen: false,
+            controlTabsActive: 'layout',
             // 主标签页
             mainTabs: [],
             mainTabsActive: 'home',
@@ -697,11 +697,11 @@
         watch: {
           headerFixed: function (val) {
             if (!val) {
-              vm.asideControlFixed = false;
+              vm.controlFixed = false;
               vm.mainTabsHeaderFixed = false;
             }
           },
-          asideControlFixed: function (val) {
+          controlFixed: function (val) {
             if (val) {
               vm.headerFixed = true;
             }

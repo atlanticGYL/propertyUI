@@ -6,8 +6,7 @@ $--color-primary: $skin--gray;
 
 /* Aside
 ------------------------------ */
-$block: '.aui-aside';
-#{$block} {
+.aui-aside {
   &__menu.el-menu .el-menu-item.is-active,
   &__menu.el-menu .el-submenu.is-active > .el-submenu__title,
   &__menu.el-menu > .el-submenu.is-opened > .el-submenu__title {

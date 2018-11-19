@@ -92,8 +92,7 @@ $font--line-height-base: 1.15;
 ------------------------------ */
 $header--zindex: 1030;
 $header--height: 50px;
-$header--shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
-$brand--font-size: $font--size-xl;
+// $brand--font-size: $font--size-xl;
 
 
 /* Aside
@@ -109,11 +108,11 @@ $aside--top-height: 42px;
 $header--top-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
 
 
-/* Aside control
+/* Control
 ------------------------------ */
-$aside-control--zindex: 1020;
-$aside-control--width: 210px;
-$aside-control--shadow: -1px 0 0 0 rgba(0, 0, 0, .05);
+$control--zindex: 1020;
+$control--width: 210px;
+$control--shadow: -1px 0 0 0 rgba(0, 0, 0, .05);
 
 
 /* Main

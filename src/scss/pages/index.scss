@@ -1,5 +1,4 @@
-$block: '.aui-page.page-index';
-#{$block} {
+.aui-page.page-index {
   .index-section + .index-section {
     margin-top: 15px;
   }

@@ -10,8 +10,8 @@
         'aui-header--fixed': headerFixed,
         'aui-aside--fixed': asideFixed,
         'aui-aside--fold': asideFold,
-        'aui-aside-control--fixed': asideControlFixed,
-        'aui-aside-control--open': asideControlOpen,
+        'aui-control--fixed': controlFixed,
+        'aui-control--open': controlOpen,
         'aui-main-tabs__header--fixed': mainTabsHeaderFixed
       }
     ]"
@@ -22,8 +22,8 @@
       <include src="./templates/layout-header.html"></include>
       <!-- aui-aside -->
       <include src="./templates/layout-aside.html" mode="vertical"></include>
-      <!-- aui-aside-control -->
-      <include src="./templates/layout-aside-control.html"></include>
+      <!-- aui-control -->
+      <include src="./templates/layout-control.html"></include>
       <!-- aui-main -->
       <main class="aui-main">
         <div class="aui-main__hd">
@@ -63,10 +63,10 @@
             // 搜索
             searchVisible: false,
             search: '',
-            // 侧边管理控制
-            asideControlFixed: false,
-            asideControlOpen: false,
-            asideControlTabsActive: 'layout',
+            // 控制台
+            controlFixed: false,
+            controlOpen: false,
+            controlTabsActive: 'layout',
             // 主标签页
             mainTabs: [],
             mainTabsActive: 'home',
@@ -94,11 +94,11 @@
         watch: {
           headerFixed: function (val) {
             if (!val) {
-              vm.asideControlFixed = false;
+              vm.controlFixed = false;
               vm.mainTabsHeaderFixed = false;
             }
           },
-          asideControlFixed: function (val) {
+          controlFixed: function (val) {
             if (val) {
               vm.headerFixed = true;
             }
