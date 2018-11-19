@@ -25,21 +25,32 @@ gulp.task('copyFiles', () => {
 })
 
 /**
+ * 版本号
+ */
+gulp.task('version', () => {
+  return gulp.src(['./src/templates/html-header.html'])
+    .pipe($.replace(/<title>(.*)<\/title>/, (match, p1) => {
+      return `<title>renren-aui v${require('./package.json').version}<\/title>`
+    }))
+    .pipe(gulp.dest('./src/templates'))
+})
+
+/**
  * 页面
  */
-gulp.task('page-index', () => {
+gulp.task('page-index', ['version'], () => {
   return gulp.src(['./src/*.html'])
     .pipe($.htmlTagInclude())
-    .pipe($.if(env === 'prod', $.replace(/src=\"(.*)\/vue.js\"/g, (match, p1) => {
+    .pipe($.if(env === 'prod', $.replace(/src=\"(.*)\/vue.js\"/, (match, p1) => {
       return `src="${p1}/vue.min.js"`
     })))
     .pipe(gulp.dest('./dist'))
     .pipe($.connect.reload())
 })
-gulp.task('pages', () => {
+gulp.task('pages', ['version'], () => {
   return gulp.src(['./src/pages/**/*.html'])
     .pipe($.htmlTagInclude())
-    .pipe($.if(env === 'prod', $.replace(/src=\"(.*)\/vue.js\"/g, (match, p1) => {
+    .pipe($.if(env === 'prod', $.replace(/src=\"(.*)\/vue.js\"/, (match, p1) => {
       return `src="${p1}/vue.min.js"`
     })))
     .pipe(gulp.dest('./dist/pages'))
