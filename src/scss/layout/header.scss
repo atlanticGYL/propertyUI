@@ -4,8 +4,11 @@
   right: 0;
   left: 0;
   z-index: $header--zindex;
+  display: flex;
   height: $header--height;
+  padding-left: $aside--width;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
+  transition: padding-left .3s;
   &__hd {
     position: absolute;
     top: 0;
@@ -36,7 +39,8 @@
   &__bd {
     position: relative;
     display: flex;
-    margin-left: $aside--width;
+    flex: 1;
+    margin-left: auto;
     background-color: $color--white;
     transition: margin-left .3s;
   }
@@ -67,16 +71,15 @@
     }
   }
   &__menu.el-menu .el-submenu > .el-menu--horizontal {
-    min-width: calc(100% - (5px * 2));
-    margin: 0 5px;
+    position: absolute !important;
   }
-  &__menu.el-menu .el-submenu > .el-menu--horizontal .el-menu,
-  &__menu.el-menu .el-submenu > .el-menu--horizontal .el-menu-item {
+  &__menu.el-menu > .el-submenu > .el-menu--horizontal {
+    left: 0 !important;
+  }
+  &__menu.el-menu > .el-submenu > .el-menu--horizontal,
+  &__menu.el-menu > .el-submenu > .el-menu--horizontal > .el-menu,
+  &__menu.el-menu > .el-submenu > .el-menu--horizontal > .el-menu > .el-menu-item {
     min-width: 100%;
-  }
-  &__menu.el-menu .el-submenu > .el-menu--horizontal .el-menu {
-    margin-right: 0;
-    margin-left: 0;
   }
   &__menu.el-menu > .el-menu-item > a,
   &__menu.el-menu > .el-submenu .el-submenu__title > a {
@@ -92,9 +95,6 @@
     display: inline-block;
     vertical-align: middle;
     color: inherit;
-  }
-  &__menu.el-menu .el-submenu .el-menu--horizontal {
-    position: absolute !important;
   }
   &__menu.el-menu > .el-submenu.not-arrow > .el-submenu__title > .el-submenu__icon-arrow {
     display: none;
@@ -147,6 +147,10 @@
   &__menu--right.el-menu .el-submenu > .el-menu--horizontal .el-menu--horizontal {
     right: 100% !important;
     left: initial !important;
+  }
+  &__menu--right.el-menu .el-submenu > .el-menu--horizontal .el-menu--horizontal .el-menu {
+    margin-left: -5px;
+    margin-right: 5px;
   }
 }
 

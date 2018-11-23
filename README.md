@@ -11,12 +11,13 @@
 
 </div>
 
+- GitHub - [https://github.com/renrenio/renren-aui](https://github.com/renrenio/renren-aui)
 - 在线演示 - [http://aui.demo.renren.io](http://aui.demo.renren.io)
 - 使用文档 - 努力中...
 - 常见问题 - 努力中...
 - 更新日志 - [https://github.com/renrenio/renren-aui/releases](https://github.com/renrenio/renren-aui/releases)
 
-## 兼容性
+## 浏览器支持
 
 兼容以下主流浏览器。
 

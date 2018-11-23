@@ -7,7 +7,7 @@
   &__hd {
     padding: 15px;
     background-color: $color--white;
-    box-shadow: $main--tabs-header-shadow;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
   }
   &__bd {
     padding: 15px;
@@ -16,7 +16,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: $main--zindex + 1;
     width: $main--tabs-tool-width;
     height: $main--tabs-header-height;
     text-align: center;
@@ -33,9 +33,9 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: $main--zindex;
     padding: 0 ($main--tabs-tool-width + 15px) 0 15px;
-    box-shadow: $main--tabs-header-shadow;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
     background-color: $color--white;
     transition: right .3s, left .3s;
   }
@@ -67,6 +67,8 @@
     background-color: transparent;
   }
 }
+
+// 标签页, 头部固定
 .aui-main-tabs__header--fixed {
   .aui-main-tabs__tool {
     position: fixed;
@@ -77,11 +79,24 @@
     top: $header--height;
     left: $aside--width;
   }
-  &.aui-aside--fold .aui-main-tabs.el-tabs > .el-tabs__header {
+}
+.aui-main-tabs__header--fixed.aui-aside--fold {
+  .aui-main-tabs.el-tabs > .el-tabs__header {
     left: $aside--width-fold;
   }
-  &.aui-control--open .aui-main-tabs__tool,
-  &.aui-control--open .aui-main-tabs.el-tabs > .el-tabs__header  {
+}
+.aui-main-tabs__header--fixed.aui-aside--top {
+  .aui-main-tabs__tool {
+    top: $header--height + $aside--top-height;
+  }
+  .aui-main-tabs.el-tabs > .el-tabs__header {
+    top: $header--height + $aside--top-height;
+    left: 0;
+  }
+}
+.aui-main-tabs__header--fixed.aui-control--open {
+  .aui-main-tabs__tool,
+  .aui-main-tabs.el-tabs > .el-tabs__header {
     right: $control--width;
   }
 }

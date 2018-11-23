@@ -56,26 +56,42 @@
     border-top: 1px solid $border--color-lighter;
   }
 }
+
+// 固定
 .aui-control--fixed {
   .aui-control {
     position: fixed;
   }
-  &.aui-control--open .aui-main {
+}
+.aui-control--fixed.aui-control--open {
+  .aui-main {
     margin-right: 0;
   }
-  &.aui-control--open .aui-footer {
+  .aui-footer {
     margin-right: 0;
   }
 }
+.aui-control--fixed.aui-control--open.aui-aside--top {
+  .aui-aside {
+    right: 0;
+  }
+}
+
+// 打开
 .aui-control--open {
   .aui-control {
     right: 0;
-    box-shadow: $control--shadow;
+    box-shadow: -1px 0 0 0 rgba(0, 0, 0, .05);
   }
   .aui-main {
     margin-right: $control--width;
   }
   .aui-footer {
     margin-right: $control--width;
+  }
+}
+.aui-control--open.aui-aside--top {
+  .aui-aside {
+    right: $control--width;
   }
 }

@@ -1,26 +1,17 @@
 <aside class="aui-aside">
   <div class="aui-aside__inner">
     <el-menu
+      v-if="asideMenuVisible"
       class="aui-aside__menu"
       :default-active="asideMenuActive"
       :collapse="asideFold"
       :unique-opened="true"
       :collapse-transition="false"
-      mode="@@mode">
-      <el-submenu index="dashboard" :popper-append-to-body="false">
-        <template slot="title">
-          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
-          <span>Dashboard</span>
-        </template>
-        <el-menu-item index="home" @click="gotoPageHandle('./index.html')">
-          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-          <span slot="title">首页</span>
-        </el-menu-item>
-        <el-menu-item index="home-tabs" @click="gotoPageHandle('./index-tabs.html')">
-          <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-          <span slot="title">首页 - tabs</span>
-        </el-menu-item>
-      </el-submenu>
+      :mode="asideTop ? 'horizontal' : 'vertical'">
+      <el-menu-item index="home" @click="gotoPageHandle('./index.html')">
+        <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+        <span slot="title">首页</span>
+      </el-menu-item>
 
       <el-submenu index="basic" :popper-append-to-body="false">
         <template slot="title">

@@ -88,39 +88,40 @@ $font--weight-base: 500;
 $font--line-height-base: 1.15;
 
 
+/* Wrapper
+------------------------------ */
+$wrapper-min-width: 1180px;
+
+
 /* Header
 ------------------------------ */
 $header--zindex: 1030;
 $header--height: 50px;
-// $brand--font-size: $font--size-xl;
 
 
 /* Aside
 ------------------------------ */
 $aside--zindex: 1020;
 $aside--width: 230px;
-$aside--shadow: 1px 0 0 0 rgba(0, 0, 0, .05);
 $aside--width-fold: 60px;
 $aside--menu-item-height: 40px;
 $aside--text-color-dark: #8a979e;
 $aside--background-color-dark: #263238;
 $aside--top-height: 42px;
-$header--top-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
 
 
 /* Control
 ------------------------------ */
 $control--zindex: 1020;
 $control--width: 210px;
-$control--shadow: -1px 0 0 0 rgba(0, 0, 0, .05);
 
 
 /* Main
 ------------------------------ */
+$main--zindex: 1010;
 $main--background-color: #f1f4f5;
 $main--tabs-tool-width: 42px;
 $main--tabs-header-height: 38px;
-$main--tabs-header-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
 $main--tabs-content-padding-x: 15px;
 $main--tabs-content-padding-y: 15px;
 $main--tabs-panel-padding-x: 15px;
@@ -129,7 +130,5 @@ $main--tabs-panel-padding-y: 15px;
 
 /* Footer
 ------------------------------ */
+$footer--zindex: 1010;
 $footer--height: 56px;
-$footer--padding-x: 15px;
-$footer--padding-y: 10px;
-$footer--shadow: 0 -1px 0 0 rgba(0, 0, 0, .05);
