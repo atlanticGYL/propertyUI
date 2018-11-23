@@ -1,4 +1,4 @@
-<include src="./templates/html-header.html" path="."></include>
+<include src="../templates/html-header.html" path=".."></include>
 <body>
   <div
     v-cloak
@@ -22,22 +22,22 @@
     element-loading-text="拼命加载中">
     <template v-if="!loading">
       <!-- aui-header -->
-      <include src="./templates/layout-header.html" path="."></include>
+      <include src="../templates/layout-header.html" path=".."></include>
       <!-- aui-aside -->
-      <include src="./templates/layout-aside.html" path="."></include>
+      <include src="../templates/layout-aside.html" path=".."></include>
       <!-- aui-control -->
-      <include src="./templates/layout-control.html" path="."></include>
+      <include src="../templates/layout-control.html" path=".."></include>
       <!-- aui-main -->
       <main class="aui-main">
         <!-- standard 标准 -->
         <div v-show="mainType === 'standard'" class="aui-main__hd">
           <el-breadcrumb separator="/">
             <el-breadcrumb-item>renren-aui</el-breadcrumb-item>
-            <el-breadcrumb-item>首页</el-breadcrumb-item>
+            <el-breadcrumb-item>图标</el-breadcrumb-item>
           </el-breadcrumb>
         </div>
         <div v-show="mainType === 'standard'" class="aui-main__bd">
-          <include src="./templates/pages/index.html"></include>
+          <include src="../templates/pages/icon.html" path=".."></include>
         </div>
         <!-- tabs 标签页 -->
         <el-dropdown v-show="mainType === 'tabs'" class="aui-main-tabs__tool">
@@ -51,9 +51,11 @@
         <el-tabs v-show="mainType === 'tabs'" class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
           <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <include src="./templates/pages/index.html" path="."></include>
+            <include src="../templates/pages/index.html" path=".."></include>
           </el-tab-pane>
-          <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
+          <el-tab-pane label="icon" name="icon" :closable="false">
+            <include src="../templates/pages/icon.html" path=".."></include>
+          </el-tab-pane>
           <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
           <el-tab-pane label="标签页5" name="5" closable>
             <span slot="label"><i class="el-icon-date"></i> 标签页5</span>
@@ -66,10 +68,10 @@
         </el-tabs>
       </main>
       <!-- aui-footer -->
-      <include src="./templates/layout-footer.html" path="."></include>
+      <include src="../templates/layout-footer.html" path=".."></include>
     </template>
   </div>
-  <include src="./templates/html-scripts.html" path="."></include>
+  <include src="../templates/html-scripts.html" path=".."></include>
   <script>
     (function () {
       var vm = window.vm = new Vue({
@@ -99,7 +101,7 @@
             // 侧边, 菜单显示状态 (控制台“至头部”操作时, el-menu组件需根据mode属性重新渲染)
             asideMenuVisible: true,
             // 侧边, 菜单选中
-            asideMenuActive: 'home',
+            asideMenuActive: 'icon',
             // 搜索, 显示状态
             searchVisible: false,
             // 搜索, 值
@@ -107,7 +109,7 @@
             // 控制台, 固定状态
             controlFixed: false,
             // 控制台, 打开状态
-            controlOpen: true,
+            controlOpen: false,
             // 控制台, 标签页选中
             controlTabsActive: 'layout',
             // 主内容, 展示类型 (standard 标准 / tabs 标签页)
@@ -115,7 +117,7 @@
             // 主标签页, 列表
             mainTabs: [],
             // 主标签页, 选中
-            mainTabsActive: 'home',
+            mainTabsActive: 'icon',
             // 主标签页, 头部固定状态
             mainTabsHeaderFixed: false,
             // 皮肤, 默认值
@@ -134,9 +136,7 @@
               { name: 'red'      , color: '#FF4C52', remark: '红色' },
               { name: 'turquoise', color: '#17B3A3', remark: '蓝绿色' },
               { name: 'yellow'   , color: '#FCB900', remark: '黄色' }
-            ],
-            indexNoticeTabsActive: '1',
-            indexPersonalTabsActive: '1'
+            ]
           }
         },
         watch: {
@@ -253,11 +253,11 @@
             var styleList = [
               {
                 id: 'J_elementTheme',
-                url: './element-theme/' + val + '/index.css?t=' + new Date().getTime()
+                url: '../element-theme/' + val + '/index.css?t=' + new Date().getTime()
               },
               {
                 id: 'J_auiSKin',
-                url: './css/aui-' + val + '.min.css?t=' + new Date().getTime()
+                url: '../css/aui-' + val + '.min.css?t=' + new Date().getTime()
               }
             ];
             for (var i = 0; i < styleList.length; i++) {

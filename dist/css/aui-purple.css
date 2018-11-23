@@ -1712,6 +1712,24 @@ a {
 .aui-page.page-index .index-code__item-intro {
   margin: 10px 0 0; }
 
+.aui-page.page-icon .icon-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0; }
+
+.aui-page.page-icon .icon-list > li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 15px;
+  min-width: 150px;
+  font-size: 36px;
+  text-align: center; }
+
+.aui-page.page-icon .icon-classname {
+  margin: 5px 0 0;
+  font-size: 12px; }
+
 .aui-page.page-login {
   height: 100vh;
   background-color: transparent;
@@ -1837,3 +1855,9 @@ a {
 .aui-page.page-login--right-vertical .aui-page-footer {
   right: 0;
   width: 420px; }
+
+.aui-page.page-chart .el-col + .el-col {
+  margin-top: 15px; }
+
+.aui-page.page-chart .chart-box {
+  min-height: 400px; }
