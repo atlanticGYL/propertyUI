@@ -117,7 +117,7 @@ gulp.task('scripts', () => {
       presets: ['es2015']
     }))
     .pipe(gulp.dest('./dist/js'))
-    .pipe($.uglify())
+    .pipe($.uglify({ mangle: { toplevel: true }}))
     .on('error', (e) => {
       $.util.log($.util.colors.red('[Error]'), e.toString())
     })
@@ -141,7 +141,7 @@ gulp.task('watch', () => {
  */
 gulp.task('webserver', () => {
   $.connect.server({
-    'port': 9000,
+    'port': 8001,
     'root': './dist',
     'livereload': true
   })
