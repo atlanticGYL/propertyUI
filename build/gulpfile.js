@@ -9,9 +9,8 @@ var child_process = require('child_process')
 /**
  * 样式
  */
-var fnSCSS = function (enter, out) {
-  del.sync(out, { force: true })
-  return gulp.src(enter)
+gulp.task('styles', () => {
+  return gulp.src(['./scss/skins/**/*.scss'])
   .pipe($.sass().on('error', $.sass.logError))
   .pipe($.autoprefixer({
     browsers: require('./package.json')['element-theme'].browsers,
@@ -20,21 +19,16 @@ var fnSCSS = function (enter, out) {
   .pipe($.rename((path) => {
     path.basename = 'aui-' + path.basename
   }))
-  .pipe(gulp.dest(out))
+  .pipe(gulp.dest('../src/styles'))
   .pipe($.cleanCss())
   .pipe($.rename({ suffix: '.min' }))
-  .pipe(gulp.dest(out))
-}
-gulp.task('styles', () => {
-  // return fnSCSS(['./scss/aui.scss'], '../src/styles')
-})
-gulp.task('skins', () => {
-  return fnSCSS(['./scss/skins/**/*.scss'], '../src/styles')
+  .pipe(gulp.dest('../src/styles'))
 })
 
 gulp.task('serve', () => {
-  gulp.start(['styles', 'skins'])
-  gulp.watch(['./scss/**/*.{scss,css}'], ['styles', 'skins'])
+  del.sync('../src/styles', { force: true })
+  gulp.start(['styles'])
+  gulp.watch(['./scss/**/*.{scss,css}'], ['styles'])
 })
 
 /**
@@ -47,8 +41,6 @@ gulp.task('create-element-theme', () => {
   var variablesDirTemp = etOptions.config.replace(/(.*\/)(.+)(\.scss)/, '$1$2-temp$3')
   var themeFileDir     = etOptions.out.replace(/(.*\/)[^\/]+/, '$1')
   if (themeList.length <= 0) { return del.sync(variablesDirTemp, { force: true }) }
-
-  console.log(themeFileDir, variablesDirTemp)
 
   // 删除临时文件，保证本次操作正常执行
   del.sync(variablesDirTemp, { force: true })
