@@ -1,0 +1,58 @@
+<include src="../templates/html-header.html" path=".."></include>
+<body>
+  <div v-cloak class="aui-page page-login">
+    <div class="login-wrapper">
+      <!-- page-header -->
+      <include src="../templates/page-header.html" path=".."></include>
+      <!-- page-main -->
+      <main class="aui-page-main">
+        <include src="../templates/pages/login.html" path=".."></include>
+      </main>
+      <!-- page-footer -->
+      <include src="../templates/page-footer.html" path=".."></include>
+    </div>
+  </div>
+  <include src="../templates/html-scripts.html" path=".."></include>
+  <script>
+    (function () {
+      var vm = window.vm = new Vue({
+        el: '.aui-page',
+        data: function () {
+          return {
+            dataForm: {
+              language: 'zh-CN',
+              username: '',
+              password: '',
+              captcha: '',
+              rememb: false
+            },
+            dataRule: {
+              username: [
+                { required: true, message: '必填项不能为空', trigger: 'blur' }
+              ],
+              password: [
+                { required: true, message: '必填项不能为空', trigger: 'blur' }
+              ],
+              captcha: [
+                { required: true, message: '必填项不能为空', trigger: 'blur' }
+              ]
+            }
+          }
+        },
+        beforeCreate () {
+          vm = this;
+        },
+        methods: {
+          dataFormSubmitHandle () {
+            vm.$refs['dataForm'].validate(function (valid) {
+              if (valid) {
+                window.location.href = '../index.html';
+              }
+            });
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
