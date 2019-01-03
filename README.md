@@ -2,7 +2,7 @@
 
 <div align="center">
 
-基于Vue、Element-ui实现的一套后台管理系统HTML模板，无须编译、开箱即用。
+基于RequireJS、Vue、Element实现的一套开箱即用的SPA & MPA后台管理模板。
 
 [![vue](https://img.shields.io/badge/vue-%5E2.5.17-red.svg)](https://github.com/vuejs/vue)
 [![element](https://img.shields.io/badge/element-%5E2.4.5-orange.svg)](https://github.com/ElemeFE/element)
